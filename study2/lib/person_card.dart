@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class PersonCard extends StatelessWidget {
 
+  final String avatar;
   final String name;
   final String job;
   final String phoneNumber;
@@ -10,6 +11,7 @@ class PersonCard extends StatelessWidget {
 
   const PersonCard({
     super.key,
+    required this.avatar,
     required this.name,
     required this.job,
     required this.phoneNumber,
@@ -35,7 +37,7 @@ class PersonCard extends StatelessWidget {
             CircleAvatar(
               radius: 40,
               backgroundImage: NetworkImage(
-                  'https://avatars.githubusercontent.com/u/122099628?v=4'
+                avatar
               ),
             ),
             const SizedBox(height: 12),

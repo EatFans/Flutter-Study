@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               PersonCard(
+                avatar: 'https://avatars.githubusercontent.com/u/122099628',
                 name: "EatFan",
                 job: "全栈开发工程师",
                 phoneNumber: "123-456-7890",

@@ -12,18 +12,13 @@ class FirstPage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text("跳转到第二个页面"),
-          onPressed: () {
-            // 按下跳转到第二个页面
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SecondPage(),
-                ),
-            );
-          },
-        )
-      ),
+            onPressed: (){
+              // 导航路由跳转
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+            },
+            child: Text("点击跳转到第二个页面")
+        ),
+      )
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study6/first_page.dart';
+import 'package:study6/pages/first_page.dart';
 
 void main() {
   runApp(const MyApp());

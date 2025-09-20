@@ -36,14 +36,21 @@ class _HomePageState extends State<HomePage> {
       String todoMessage = _controller.text;
       todoList.add([todoMessage, false]);
       _controller.clear();
-      Navigator.of(context).pop();
     });
+    Navigator.of(context).pop();
   }
 
   // 改变单选框状态
   void _checkBoxChanged(bool? value,int index){
     setState(() {
       todoList[index][1] = !todoList[index][1];
+    });
+  }
+
+  // 删除Todo
+  void _deleteTodo(int index){
+    setState(() {
+      todoList.removeAt(index);
     });
   }
 
@@ -76,7 +83,8 @@ class _HomePageState extends State<HomePage> {
           return TodoTile(
               taskName: todoList[index][0],
               taskCompleted: todoList[index][1],
-              onChanged: (val) => _checkBoxChanged(val,index)
+              onChanged: (val) => _checkBoxChanged(val,index),
+              onDelete: (context) => _deleteTodo(index),
           );
         },
       ),

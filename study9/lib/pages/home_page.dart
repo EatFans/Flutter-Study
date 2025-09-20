@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             "To Do",
           style: TextStyle(
             color: Colors.white,
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

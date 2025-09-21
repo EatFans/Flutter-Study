@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study10/widgets/onboarding_page.dart';
 
 class ContainerPage extends StatefulWidget {
   const ContainerPage({super.key});
@@ -8,12 +9,15 @@ class ContainerPage extends StatefulWidget {
 }
 
 class _ContainerPageState extends State<ContainerPage> {
+
+  final PageController _pageController = PageController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Text("Hello World")
-
+          child: OnboardingPage(),
       ),
     );
   }

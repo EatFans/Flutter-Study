@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study11/widgets/custom_navigation_bar.dart';
 
 class ContainerPage extends StatefulWidget {
   const ContainerPage({super.key});
@@ -8,57 +9,29 @@ class ContainerPage extends StatefulWidget {
 }
 
 class _ContainerState extends State<ContainerPage>{
+  int _currentIndex = 0;
 
-  // 当按钮点击时候
-  void _onIconTapped(int index){
+  final List<Widget> _pages = [
+    const Center( child: Text("主页") ),
+    const Center(child: Text("搜索")),
+    const Center(child: Text("学习")),
+    const Center(child: Text("我的")),
+  ];
 
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
+      body: _pages[_currentIndex],
 
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.teal,
-        shape: CircularNotchedRectangle(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              onPressed: () => _onIconTapped(0),
-            ),
-
-            IconButton(
-              icon: Icon(
-                  Icons.search,
-                color: Colors.white
-              ),
-              onPressed: () => _onIconTapped(1),
-            ),
-
-            SizedBox(), // 增加一些间隔
-
-            IconButton(
-              icon: Icon(
-                Icons.school,
-                color: Colors.white,
-              ),
-              onPressed: () => _onIconTapped(3),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              onPressed: () => _onIconTapped(2),
-            )
-          ],
-        ),
+      bottomNavigationBar: CustomNavigationBar(
+        currentIndex: _currentIndex,
+        onIconTapped: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

@@ -38,7 +38,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
     },
   ];
 
+  // 文本按钮被点击
+  void _buttonPressed() {
+    if (_currentPage != _pagesContent.length - 1) {
+      _pageController.jumpToPage(_currentPage + 1);
+    } else {
+      // TODO:
+      print("到引导页面最后一页了，需要跳转到软件其他页面");
+    }
+  }
 
+  // 页面改变
+  void _pageChanged(int index){
+    setState(() {
+      _currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +65,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           PageView.builder(
             controller: _pageController,
               itemCount: _pagesContent.length,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentPage = index;
-                });
-              },
+              onPageChanged: _pageChanged,
               itemBuilder: (context, index) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -116,6 +127,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   // 小圆点指示器
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    // 列表渲染小圆点
                     children: List.generate(
                       _pagesContent.length,
                         (index) => AnimatedContainer(
@@ -133,9 +145,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
                   // 按钮
                   TextButton(
-                    onPressed: () {
-                      _pageController.jumpToPage(_currentPage + 1);
-                    },
+                    onPressed: _buttonPressed,
                     child: Text(
                       _currentPage == _pagesContent.length - 1 ? "开始使用" : "继续",
                       style: const TextStyle(

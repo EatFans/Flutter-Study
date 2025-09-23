@@ -10,6 +10,7 @@ class CustomNavigationBar extends StatelessWidget {
     required this.onIconTapped,
   });
 
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
